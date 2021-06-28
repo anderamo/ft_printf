@@ -6,48 +6,100 @@
 /*   By: aamorin- <aamorin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 10:36:10 by aamorin-          #+#    #+#             */
-/*   Updated: 2021/06/27 12:27:47 by aamorin-         ###   ########.fr       */
+/*   Updated: 2021/06/28 11:56:51 by aamorin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 #include <stdio.h>
-#include <stdarg.h>
-#include <unistd.h>
+#include <string.h>
 
-typedef struct s_list
+char	*check_specifier(char *spe, char *full_flags)
 {
-	void			*content;
-	struct s_list	*next;
-}	t_list;
+	char	*str;
+	size_t	len;
 
-char	*check_width(char *width)
-{
-	char	*full_flags;
-
-	if (*flag == '-' || *flag == '+' || *flag == ' '
-		|| *flag == '#' || *flag == '0')
+	len = ft_strlen(full_flags);
+	str = malloc(len + 1 + 1);
+	str = ft_strdup(full_flags);
+	free(full_flags);
+	if (spe[len] == 'c' || spe[len] == 's' || spe[len] == 'p'
+		|| spe[len] == 'i' || spe[len] == 'u' || spe[len] == 'x'
+		|| spe[len] == 'X' || spe[len] == '%')
 	{
-		full_flags = flag;
-		flag++;
+		str[len] = spe[len];
+		str[len + 1] = '\0';
 	}
-	full_flags += check_width(flag);
-	return (NULL);
+	return (str);
 }
 
-char	*check_flag(char *flag)
+char	*check_precision(char *precision, char *full_flags)
 {
-	char	*full_flags;
+	char	*str;
+	size_t	len;
 
+	len = ft_strlen(full_flags);
+	str = malloc(len + 1 + 1);
+	str = ft_strdup(full_flags);
+	free(full_flags);
+	if (precision[len] == '.')
+	{
+		str[len] = precision[len];
+		len++;
+		if (precision[len] == '*')
+		{
+			str[len] = precision[len];
+			len++;
+		}
+		str[len] = '\0';
+	}
+	return (str);
+}
+
+char	*check_width(char *width, char *full_flags)
+{
+	char	*str;
+	size_t	len;
+
+	len = ft_strlen(full_flags);
+	str = malloc(len + 1 + 1);
+	str = ft_strdup(full_flags);
+	free(full_flags);
+	if (width[len] == '*')
+	{
+		str[len] = width[len];
+		str[len + 1] = '\0';
+	}
+	return (str);
+}
+
+char	*check_flag(char *flag, char *full_flags)
+{
+	int	i;
+
+	full_flags = malloc(1 + 1);
+	i = 0;
 	if (*flag == '-' || *flag == '+' || *flag == ' '
 		|| *flag == '#' || *flag == '0')
 	{
-		full_flags = flag;
-		flag++;
-		full_flags += check_width(flag);
-		return (full_flags);
+		strcpy(full_flags, flag);
+		full_flags[i] = *flag;
+		full_flags[i + 1] = '\0';
 	}
-	return (NULL);
+	return (full_flags);
+}
+
+char	*check(char *nargs, char *full_flags)
+{
+	char	*flag;
+
+	flag = ft_strdup((const char *)nargs);
+	full_flags = check_flag(flag, full_flags);
+	full_flags = check_width(flag, full_flags);
+	full_flags = check_precision(flag, full_flags);
+	full_flags = check_specifier(flag, full_flags);
+	printf("\nFull flags = %s\n", full_flags);
+	return (full_flags);
 }
 
 void	ft_printf(char *nargs, ...)
@@ -64,9 +116,9 @@ void	ft_printf(char *nargs, ...)
 	{
 		if (*nargs == '%')
 		{
-			flag = check_flag(nargs + 1);
+			flag = check(nargs + 1, NULL);
 			item_count++;
-			if (flag != NULL)
+			if (flag == NULL)
 			{
 				printf("entro");
 			}
@@ -86,6 +138,6 @@ int	main(int argc, char *argv[])
 	char	*str;
 
 	str = "tomate";
-	ft_printf("hola%-s", str);
+	ft_printf("hola%-*w", str);
 	return (0);
 }
