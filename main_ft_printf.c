@@ -6,7 +6,7 @@
 /*   By: aamorin- <aamorin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 10:36:10 by aamorin-          #+#    #+#             */
-/*   Updated: 2021/06/29 11:58:00 by aamorin-         ###   ########.fr       */
+/*   Updated: 2021/07/01 12:37:29 by aamorin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,15 @@ typedef struct s_flags
 	int	plus;
 	int	dot_asterisk;
 	int	type;
+	int	numbers;
 }	t_flags;
 
-t_flags	initialize(void)
+t_flags	initialize_list(void)
 {
 	t_flags	flags;
 
 	flags.dot = -1;
+	flags.numbers = -1;
 	flags.minus = -1;
 	flags.asterisk = -1;
 	flags.zero = -1;
@@ -37,6 +39,28 @@ t_flags	initialize(void)
 	flags.type = -1;
 	flags.plus = -1;
 	return (flags);
+}
+
+int	get_flags_number(char *flag)
+{
+	size_t		i;
+	size_t		j;
+	char		*number;
+
+	i = 0;
+	j = 0;
+	while (flag[i] >= '0' && flag[i] <= '9')
+		i++;
+	if (i == 0)
+		return (0);
+	number = malloc(i + 1);
+	while (flag[j] >= '0' && flag[j] <= '9')
+	{
+		number[j] = flag[j];
+		j++;
+	}
+	number[j] = '\0';
+	return (ft_atoi(number));
 }
 
 char	*get_number(char *flag, char *full_flags)
@@ -53,13 +77,13 @@ char	*get_number(char *flag, char *full_flags)
 	else
 	{
 		len = 0;
-		while (flag[len] > '0' && flag[len] <= '9')
+		while (flag[len] >= '0' && flag[len] <= '9')
 			len++;
 		str = malloc(len + 1 + 1);
 		len = 0;
 	}
 	free(full_flags);
-	while (flag[len] > '0' && flag[len] <= '9')
+	while (flag[len] >= '0' && flag[len] <= '9')
 	{
 		str[len] = flag[len];
 		len++;
@@ -68,15 +92,43 @@ char	*get_number(char *flag, char *full_flags)
 	return (str);
 }
 
-int	check(char *flags)
+t_flags	check(char *flags)
 {
 	t_flags	all_flags;
+	size_t	count;
 
-	while (flags)
+	all_flags = initialize_list();
+	if (*flags)
 	{
-		return (0);
+		if (*flags > '0' && *flags <= '9')
+		{
+			all_flags.numbers = get_flags_number(flags);
+		}
+		if (*flags == '0')
+		{
+			all_flags.zero = get_flags_number(flags + 1);
+		}
+		if (*flags == '-')
+		{
+			all_flags.minus = get_flags_number(flags + 1);
+		}
+		if (*flags == '.')
+		{
+			flags++;
+			if (*flags == '*')
+			{
+				printf("dot_asterisk in get value from parametre in progress");
+				/*
+				all_flags.dot_asterisk = get_flags_number(flags + 1);
+				printf("\nall_flags.dot_asterisk = %d\n", all_flags.dot_asterisk);
+				*/
+			}
+			else
+				all_flags.dot = get_flags_number(flags + 1);
+		}
 	}
-	return (0);
+
+	return (all_flags);
 }
 
 char	*get_specifier(char *spe, char *full_flags)
@@ -152,21 +204,18 @@ char	*get(char *nargs, char *full_flags)
 	if (*full_flags == '-' || *full_flags == '0' || *full_flags == '.')
 		full_flags = get_number(flag, full_flags);
 	full_flags = get_width(flag, full_flags);
-	//full_flags = get_precision(flag, full_flags);
 	full_flags = get_specifier(flag, full_flags);
-	printf("\nFull flags = %s\n", full_flags);
 	return (full_flags);
 }
 
 void	ft_printf(char *nargs, ...)
 {
 	va_list	ap;
-	int		i;
+	t_flags	flags_list;
 	int		item_count;
 	char	*num;
 	char	*flag;
 
-	i = 0;
 	item_count = 0;
 	while (*nargs)
 	{
@@ -174,16 +223,21 @@ void	ft_printf(char *nargs, ...)
 		{
 			flag = get(nargs + 1, NULL);
 			item_count++;
+			printf("\nFull flags %d = %s\n", item_count, flag);
 			if (flag != NULL)
-				printf("in");
-				//check(flag);
+			{
+				flags_list = check(flag);
+				printf("all_flags.numbers = %d\n", flags_list.numbers);
+				printf("all_flags.minus = %d\n", flags_list.minus);
+				printf("all_flags.dot = %d\n", flags_list.dot);
+				printf("all_flags.zero = %d\n", flags_list.zero);
+			}
 		}
 		else
 		{
 			write(1, nargs, 1);
 		}
 		nargs++;
-		i++;
 	}
 	printf("\n");
 }
@@ -195,10 +249,11 @@ int	main(int argc, char *argv[])
 
 	str1 = "tomate";
 	str2 = "volador";
-	ft_printf("hola %.12d %d", str1, str2);
+	ft_printf("hola %010d", 5, str2);
 	return (0);
 }
 /*
+//full_flags = get_precision(flag, full_flags);
 char	*get_precision(char *precision, char *full_flags)
 {
 	char	*str;
