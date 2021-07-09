@@ -1,0 +1,278 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   6main.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aamorin- <aamorin-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/07 17:30:21 by lugonzal          #+#    #+#             */
+/*   Updated: 2021/07/08 16:53:36 by aamorin-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "includes/ft_printf.h"
+#include "libft/libft.h"
+#include <stdio.h>
+
+#define INT_MAX 2147483647
+#define INT_MIN 2147483647
+#define LONG_MAX 9223372036854775807
+#define CHAR_MAX 127
+#define CHAR_MIN -127
+#define UINT_MAX 4294967295
+int	main(void)
+{
+
+	printf("\nSIZE: %d\n", ft_printf(" %d ", 0));
+	printf("\nSIZE: %d", printf(" %d ", 0));
+//	printf("\n///////////////1_END_TEST////////////);
+//	printf("\nSIZE: %d\n", ft_printf("my %.d", 0));
+//	printf("\nSIZE: %d", printf("te %.d", 0));
+//	printf("\n///////////////2_END_TEST////////////");
+//	printf("\nSIZE: %d", ft_printf(" %-.2d ", 0));
+//	printf("\nSIZE: %d", printf(" %-.2d ", 0));
+//	printf("\n///////////////3_END_TEST////////////);
+//	printf("\nSIZE: %d", ft_printf(" %-2.2d ", 0));
+//	printf("\nSIZE: %d", printf(" %-2.2d ", 0));
+//	printf("\n///////////////4_END_TEST////////////);
+//	printf("\nSIZE: %d", ft_printf(" %-3.2d ", 0));
+	//printf("\nSIZE: %d", printf(" %-3.2d ", 0));
+//	printf("\n///////////////5_END_TEST////////////);
+//	printf("\nSIZE: %d", ft_printf(" %-3.2d %10.42d ", 0, 0));
+	//printf("\nSIZE: %d", printf(" %-3.2d %10.42d ", 0, 0));
+//	printf("\n///////////////6_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf(" %-3.2d %10.42d ", 1, -1));
+	//printf("\nSIZE: %d", printf(" %-3.2d %10.42d ", 1, -1));
+//	printf("\n///////////////7_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf(" %-3.2d %10.42d ", 10, -10));
+	//printf("\nSIZE: %d", printf(" %-3.2d %10.42d ", 10, -10));
+//	printf("\n///////////////8_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf(" *%-*.*d* *%*.*d* ", 4, 5, 10, 10, 21, -10));
+	//printf("\nSIZE: %d", printf(" *%-*.*d* *%*.*d* ", 4, 5, 10, 10, 21, -10));
+//	printf("\n///////////////9_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf(" *%-*.*d* *%*.*d* ", 6, 2, 102, 10, 21, -101));
+	//printf("\nSIZE: %d", printf(" *%-*.*d* *%*.*d* ", 6, 2, 102, 10, 21, -101));
+//	printf("\n///////////////10_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf(" *%*.*d* *%*.*d* ", -6, 2, 102, 10, 21, 101));
+	//printf("\nSIZE: %d", printf(" *%*.*d* *%*.*d* ", -6, 2, 102, 10, 21, 101));
+//	printf("\n///////////////11_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf(" 0*%0-*.*d*0 0*%0*.*d*0 ", 6, 2, 102, 10, 21, -101));
+	//printf("\nSIZE: %d", printf(" 0*%0-*.*d*0 0*%0*.*d*0 ", 6, 2, 102, 10, 21, -101));
+//	printf("\n///////////////12_END_TEST////////////);
+	//printf("\nSIZE: %d\n", ft_printf(" 0*%0-*.*d*0 0*%0*.*d*0 ", 2, 6, 102, 21, 10, -101));
+//	printf("\nSIZE: %d\n", printf(" 0*%0-*.*d*0 0*%0*.*d*0 ", 2, 6, 102, 21, 10, -101));
+//	printf("\n///////////////13_END_TEST////////////");
+	//printf("\nSIZE: %d\n", ft_printf(" 0*%0-*d*0 0*%0*d*0 ", 21, 1021, 21, -1011));
+//	printf("\nSIZE: %d\n", printf(" 0*%0-*d*0 0*%0*d*0 ", 21, 1021, 21, -1011));
+//	printf("\n///////////////14_END_TEST////////////\n");
+	//printf("\nSIZE: %d", ft_printf(" 0*%-0*.10d*0 0*%-0*.0d*0 ", 21, 1021, 21, -1011));
+	//printf("\nSIZE: %d", printf(" 0*%-0*.10d*0 0*%-0*.0d*0 ", 21, 1021, 21, -1011));
+///	printf("\n///////////////15_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf(" --0*%0*.0d*0 0*%0*.10d*0-- ", -2, 0, 21, 1));
+	//printf("\nSIZE: %d", printf(" --0*%0*.0d*0 0*%0*.10d*0-- ", -2, 0, 21, 1));
+//	printf("\n///////////////16_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf(" --0*%0*.0d*0 0*%0*.10d*0-- ", -21, INT_MAX, 21, INT_MIN));
+	//printf("\nSIZE: %d", printf(" --0*%0*.0d*0 0*%0*.10d*0-- ", -21, INT_MAX, 21, INT_MIN));
+//	printf("\n///////////////17_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf(" --0*%0*.0d*0 0*%0*.10d*0-- ", -21, LONG_MAX, 21, 9223372036854775807));
+	//printf("\nSIZE: %d", printf(" --0*%0*.0d*0 0*%0*.10d*0-- ", -21, LONG_MAX, 21, 9223372036854775807));
+//	printf("\n///////////////18_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf(" --0*%-0*.20d*0 0*%-0*.10d*0-- ", -21, CHAR_MAX, 21, CHAR_MIN));
+	//printf("\nSIZE: %d", printf(" --0*%-0*.20d*0 0*%-0*.10d*0-- ", -21, CHAR_MAX, 21, CHAR_MIN));
+//	printf("\n///////////////19_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf(" --0*%-0*.2d*0 0*%-0*.2d*0-- ", -21, CHAR_MAX, 21, CHAR_MIN));
+	//printf("\nSIZE: %d", printf(" --0*%-0*.2d*0 0*%-0*.2d*0-- ", -21, CHAR_MAX, 21, CHAR_MIN));
+//	printf("\n///////////////20_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf(" --0*%-0*.3d*0 0*%-0*.3d*0-- ", -21, CHAR_MAX, 21, CHAR_MIN));
+	//printf("\nSIZE: %d", printf(" --0*%-0*.3d*0 0*%-0*.3d*0-- ", -21, CHAR_MAX, 21, CHAR_MIN));
+//	printf("\n///////////////21_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf(" --0*%-0*.4d*0 0*%-0*.4d*0-- ", -21, CHAR_MAX, 21, CHAR_MIN));
+	//printf("\nSIZE: %d", printf(" --0*%-0*.4d*0 0*%-0*.4d*0-- ", -21, CHAR_MAX, 21, CHAR_MIN));
+//	printf("\n///////////////22_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%9.2d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%9.2d", UINT_MAX));
+//	printf("\n///////////////23_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%9.10d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%9.10d", UINT_MAX));
+//	printf("\n///////////////24_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%10.0d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%10.0d", UINT_MAX));
+//	printf("\n///////////////25_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%10.1d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%10.1d", UINT_MAX));
+//	printf("\n///////////////26_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%10.2d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%10.2d", UINT_MAX));
+//	printf("\n///////////////27_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%10.10d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%10.10d", UINT_MAX));
+//	printf("\n///////////////28_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%11.0d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%11.0d", UINT_MAX));
+//	printf("\n///////////////29_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%11.1d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%11.1d", UINT_MAX));
+//	printf("\n///////////////30_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%11.2d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%11.2d", UINT_MAX));
+//	printf("\n///////////////31_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%11.10d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%11.10d", UINT_MAX));
+//	printf("\n///////////////32_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%-9.0d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%-9.0d", UINT_MAX));
+//	printf("\n///////////////33_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%-9.1d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%-9.1d", UINT_MAX));
+//	printf("\n///////////////34_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%-9.2d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%-9.2d", UINT_MAX));
+//	printf("\n///////////////35_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%-9.10d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%-9.10d", UINT_MAX));
+//	printf("\n///////////////36_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%-10.0d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%-10.0d", UINT_MAX));
+//	printf("\n///////////////37_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%-10.1d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%-10.1d", UINT_MAX));
+//	printf("\n///////////////38_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%-10.2d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%-10.2d", UINT_MAX));
+//	printf("\n///////////////39_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%-10.10d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%-10.10d", UINT_MAX));
+//	printf("\n///////////////40_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%-11.0d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%-11.0d", UINT_MAX));
+//	printf("\n///////////////41_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%-11.1d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%-11.1d", UINT_MAX));
+//	printf("\n///////////////42_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%-11.2d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%-11.2d", UINT_MAX));
+//	printf("\n///////////////43_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%-11.10d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%-11.10d", UINT_MAX));
+//	printf("\n///////////////44_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%09.0d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%09.0d", UINT_MAX));
+//	printf("\n///////////////45_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%09.1d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%09.1d", UINT_MAX));
+//	printf("\n///////////////46_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%09.2d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%09.2d", UINT_MAX));
+//	printf("\n///////////////47_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%09.10d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%09.10d", UINT_MAX));
+//	printf("\n///////////////48_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%010.0d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%010.0d", UINT_MAX));
+//	printf("\n///////////////49_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%010.1d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%010.1d", UINT_MAX));
+//	printf("\n///////////////50_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%010.2d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%010.2d", UINT_MAX));
+//	printf("\n///////////////51_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%010.10d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%010.10d", UINT_MAX));
+//	printf("\n///////////////52_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%011.0d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%011.0d", UINT_MAX));
+//	printf("\n///////////////53_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%011.1d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%011.1d", UINT_MAX));
+//	printf("\n///////////////54_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%011.2d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%011.2d", UINT_MAX));
+//	printf("\n///////////////55_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%011.10d", UINT_MAX));
+	//printf("\nSIZE: %d", printf("%011.10d", UINT_MAX));
+//	printf("\n///////////////56_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%09.0d", UINT_MAX + 1));
+	//printf("\nSIZE: %d", printf("%09.0d", UINT_MAX + 1));
+//	printf("\n///////////////57_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%09.1d", UINT_MAX + 1));
+	//printf("\nSIZE: %d", printf("%09.1d", UINT_MAX + 1));
+//	printf("\n///////////////58_END_TEST////////////);
+	//printf("\nSIZE: %d", ft_printf("%09.2d", UINT_MAX + 1));
+	//printf("\nSIZE: %d", printf("%09.2d", UINT_MAX + 1));
+//	printf("\n///////////////59_END_TEST////////////);
+	//printf("\nSIZE: %d\n", printf("\n%09.10d", UINT_MAX + 1));
+	//printf("\nSIZE: %d\n", ft_printf("\n%09.10d", UINT_MAX + 1));
+//	printf("\n///////////////60_END_TEST////////////);
+	//printf("\nSIZE: %d", printf("\n%010.0d", UINT_MAX + 1));
+	//printf("\nSIZE: %d", ft_printf("\n%010.0d", UINT_MAX + 1));
+//	printf("\n///////////////61_END_TEST////////////);
+	//printf("\nSIZE: %d", printf("\n%010.1d", UINT_MAX + 1));
+	//printf("\nSIZE: %d", ft_printf("\n%010.1d", UINT_MAX + 1));
+//	printf("\n///////////////62_END_TEST////////////);
+	//printf("\nSIZE: %d", printf("\n%010.2d", UINT_MAX + 1));
+	//printf("\nSIZE: %d", ft_printf("\n%010.2d", UINT_MAX + 1));
+//	printf("\n///////////////63_END_TEST////////////);
+	//printf("\nSIZE: %d", printf("\n%010.10d", UINT_MAX + 1));
+	//printf("\nSIZE: %d", ft_printf("\n%010.10d", UINT_MAX + 1));
+//	printf("\n///////////////64_END_TEST////////////);
+	//printf("\nSIZE: %d", printf("\n%011.0d", UINT_MAX + 1));
+	//printf("\nSIZE: %d", ft_printf("\n%011.0d", UINT_MAX + 1));
+//	printf("\n///////////////65_END_TEST////////////);
+	//printf("\nSIZE: %d", printf("\n%011.1d", UINT_MAX + 1));
+	//printf("\nSIZE: %d", ft_printf("\n%011.1d", UINT_MAX + 1));
+//	printf("\n///////////////66_END_TEST////////////);
+	//printf("\nSIZE: %d", printf("\n%011.2d", UINT_MAX + 1));
+	//printf("\nSIZE: %d", ft_printf("\n%011.2d", UINT_MAX + 1));
+//	printf("\n///////////////67_END_TEST////////////);
+	//printf("\nSIZE: %d", printf("\n%011.10d", UINT_MAX + 1));
+	//printf("\nSIZE: %d", ft_printf("\n%011.10d", UINT_MAX + 1));
+//	printf("\n///////////////68_END_TEST////////////);
+	//printf("\nSIZE: %d", printf("\n%.0d", 0));
+	//printf("\nSIZE: %d", ft_printf("\n%.0d", 0));
+//	printf("\n///////////////69_END_TEST////////////);
+	//printf("\nSIZE: %d", printf("\n%.0d", 5));
+	//printf("\nSIZE: %d", ft_printf("\n%.0d", 5));
+//	printf("\n///////////////70_END_TEST////////////);
+	//printf("\nSIZE: %d", printf("\n%.0d", 10));
+	//printf("\nSIZE: %d", ft_printf("\n%.0d", 10));
+//	printf("\n///////////////71_END_TEST////////////);
+	//printf("\nSIZE: %d\n", printf("\n%1.d\n", 0));
+	//printf("\nSIZE: %d\n", ft_printf("\n%1.d\n", 0));
+//	printf("\n///////////////72_END_TEST////////////);
+	//printf("\nSIZE: %d", printf("\n%2.d", 0));
+	//printf("\nSIZE: %d", ft_printf("\n%2.d", 0));
+//	printf("\n///////////////73_END_TEST////////////);
+	//printf("\nSIZE: %d", printf("\n%3.d", 0));
+	//printf("\nSIZE: %d", ft_printf("\n%3.d", 0));
+//	printf("\n///////////////74_END_TEST////////////);
+	//printf("\nSIZE: %d", printf("\n%1.1d", 0));
+	//printf("\nSIZE: %d", ft_printf("\n%1.1d", 0));
+//	printf("\n///////////////75_END_TEST////////////);
+	//printf("\nSIZE: %d", printf("\n%1.2d", 0));
+	//printf("\nSIZE: %d", ft_printf("\n%1.2d", 0));
+//	printf("\n///////////////76_END_TEST////////////);
+	//printf("\nSIZE: %d", printf("\n%1.3d", 0));
+	//printf("\nSIZE: %d", ft_printf("\n%1.3d", 0));
+//	printf("\n///////////////77_END_TEST////////////);
+	//printf("\nSIZE: %d", printf("\n%1.1d", 0));
+	//printf("\nSIZE: %d", ft_printf("\n%1.1d", 0));
+//	printf("\n///////////////78_END_TEST////////////);
+	//printf("\nSIZE: %d", printf("\n%2.2d", 0));
+	//printf("\nSIZE: %d", ft_printf("\n%2.2d", 0));
+//	printf("\n///////////////79_END_TEST////////////);
+	//printf("\nSIZE: %d", printf("\n%3.3d", 0));
+	//printf("\nSIZE: %d", ft_printf("\n%3.3d", 0));
+//	printf("\n///////////////80_END_TEST////////////);
+	//printf("\nSIZE: %d", printf("\n%3d", 0));
+	//printf("\nSIZE: %d", ft_printf("\n%3d", 0));
+//	printf("\n///////////////81_END_TEST////////////);
+	//printf("\nSIZE: %d", printf("\n%-3d", 0));
+	//printf("\nSIZE: %d", ft_printf("\n%-3d", 0));
+//	printf("\n///////////////82_END_TEST////////////);
+	//printf("\nSIZE: %d", printf("\n%03d", 0));
+	//printf("\nSIZE: %d", ft_printf("\n%03d", 0));
+//	printf("\n///////////////83_END_TEST////////////);
+	//printf("\nOR-SIZE: %d\n", printf("\n%0*d\n", -7, -54));
+	//printf("\nMI-SIZE: %d\n", ft_printf("\n%0*d\n", -7, -54));
+//	printf("\n///////////////84_END_TEST////////////\n");
+}
