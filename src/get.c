@@ -6,7 +6,7 @@
 /*   By: aamorin- <aamorin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 17:26:09 by aamorin-          #+#    #+#             */
-/*   Updated: 2021/07/20 18:14:10 by aamorin-         ###   ########.fr       */
+/*   Updated: 2021/07/21 09:23:53 by aamorin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,9 @@ char	*get_flag(char *flag)
 char	*get(char *nargs, char *full_flags)
 {
 	char	*flag;
+	int		i;
 
+	i = 0;
 	flag = ft_strdup((const char *)nargs);
 	full_flags = get_flag(flag);
 	if (*full_flags == '-' || *full_flags == '0' || *full_flags == '.'
@@ -102,7 +104,8 @@ char	*get(char *nargs, char *full_flags)
 		if (*full_flags != '.')
 		{
 			full_flags = get_precision(flag, full_flags);
-			if (*full_flags == '.')
+			i = ft_strlen(full_flags);
+			if (full_flags[i - 1] == '.')
 				full_flags = get_number(flag, full_flags);
 		}
 	}

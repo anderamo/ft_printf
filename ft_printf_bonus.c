@@ -6,7 +6,7 @@
 /*   By: aamorin- <aamorin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 10:36:10 by aamorin-          #+#    #+#             */
-/*   Updated: 2021/07/20 18:11:57 by aamorin-         ###   ########.fr       */
+/*   Updated: 2021/07/21 10:07:06 by aamorin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_printf(const char *nargs, ...)
 			flag = get((char *)nargs, NULL);
 			flags_list = get_flags_list(flag);
 			nargs = nargs + ft_strlen(flag);
-			count += write_parameters(flags_list, ap, count);
+			count += write_parameters(flags_list, ap);
 			free(flag);
 		}
 		else

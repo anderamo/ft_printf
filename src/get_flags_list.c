@@ -6,7 +6,7 @@
 /*   By: aamorin- <aamorin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 17:30:59 by aamorin-          #+#    #+#             */
-/*   Updated: 2021/07/20 18:30:51 by aamorin-         ###   ########.fr       */
+/*   Updated: 2021/07/21 09:00:29 by aamorin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_flags	initialize_list(void)
 	flags.dot_w = -1;
 	flags.dot_f = -1;
 	flags.num = -1;
-	flags.space = -1;
+	flags.space = 0;
 	flags.minus = -1;
 	flags.zero = -1;
 	flags.plus = 0;
@@ -30,8 +30,10 @@ t_flags	initialize_list(void)
 
 char	get_type(char type)
 {
-	if (type == 'd' || type == 'i')
+	if (type == 'd')
 		return ('d');
+	if (type == 'i')
+		return ('i');
 	if (type == 's')
 		return ('s');
 	if (type == 'c')

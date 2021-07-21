@@ -6,13 +6,13 @@
 /*   By: aamorin- <aamorin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 17:21:36 by aamorin-          #+#    #+#             */
-/*   Updated: 2021/07/20 18:31:15 by aamorin-         ###   ########.fr       */
+/*   Updated: 2021/07/21 10:06:31 by aamorin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	w_unsint(t_flags flags_list, va_list ap, unsigned int number)
+int	w_unsint(t_flags flags_list, unsigned int number)
 {
 	char	*num_char;
 	int		i;

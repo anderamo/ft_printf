@@ -6,13 +6,13 @@
 /*   By: aamorin- <aamorin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 17:13:42 by aamorin-          #+#    #+#             */
-/*   Updated: 2021/07/20 18:41:09 by aamorin-         ###   ########.fr       */
+/*   Updated: 2021/07/21 10:07:01 by aamorin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	write_parameters(t_flags flags_list, va_list ap, int count)
+int	write_parameters(t_flags flags_list, va_list ap)
 {
 	if (flags_list.dot_w == 0 && flags_list.minus != -1)
 		flags_list.dot_w = 1;
@@ -21,9 +21,9 @@ int	write_parameters(t_flags flags_list, va_list ap, int count)
 	if (flags_list.type == 'c')
 		return (w_chr(flags_list, ap));
 	if (flags_list.type == 'i' || flags_list.type == 'd')
-		return (w_int(flags_list, ap, va_arg (ap, int), 0));
+		return (w_int(flags_list, va_arg (ap, int), 0));
 	if (flags_list.type == 'u')
-		return (w_unsint(flags_list, ap, va_arg (ap, unsigned int)));
+		return (w_unsint(flags_list, va_arg (ap, unsigned int)));
 	if (flags_list.type == 'p')
 		return (w_address(flags_list, va_arg (ap, unsigned long long)));
 	if (flags_list.type == 'x')
