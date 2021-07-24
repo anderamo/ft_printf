@@ -6,7 +6,7 @@
 /*   By: aamorin- <aamorin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 17:24:44 by aamorin-          #+#    #+#             */
-/*   Updated: 2021/07/20 18:34:09 by aamorin-         ###   ########.fr       */
+/*   Updated: 2021/07/23 16:37:45 by aamorin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	w_string(t_flags flags_list, va_list ap)
 
 	count = 0;
 	string = va_arg (ap, char *);
+	if (string == NULL)
+		string = "(null)";
 	i = ft_strlen(string);
 	if (flags_list.dot_w != -1)
 		count += dot_string(flags_list, string, count, i);
@@ -48,7 +50,6 @@ int	w_string(t_flags flags_list, va_list ap)
 			count += putstr_c(string, i);
 		if (flags_list.minus != -1)
 			count += putchr_c(' ', flags_list.minus - i);
-		return (count);
 	}
 	return (count);
 }

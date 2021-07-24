@@ -6,7 +6,7 @@
 /*   By: aamorin- <aamorin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 17:26:09 by aamorin-          #+#    #+#             */
-/*   Updated: 2021/07/21 09:23:53 by aamorin-         ###   ########.fr       */
+/*   Updated: 2021/07/22 13:32:59 by aamorin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,8 +104,11 @@ char	*get(char *nargs, char *full_flags)
 		if (*full_flags != '.')
 		{
 			full_flags = get_precision(flag, full_flags);
-			i = ft_strlen(full_flags);
-			if (full_flags[i - 1] == '.')
+			if (*full_flags == '\0')
+				i = 0;
+			else
+				i = ft_strlen(full_flags) - 1;
+			if (full_flags[i] == '.')
 				full_flags = get_number(flag, full_flags);
 		}
 	}
